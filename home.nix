@@ -1,6 +1,10 @@
-{ config, pkgs, ... }:
+{ inputs, config, lib, pkgs, ... }:
 
 {
+  imports = [ 
+    inputs.zen-browser.homeModules.twilight 
+  ];
+  
   home.username = "jamesislan";
   home.homeDirectory = "/home/jamesislan";
   
@@ -106,6 +110,7 @@
   programs = {
   	bash.enable = true;
   	obs-studio.enable = true;
+  	zen-browser.enable = true;
   	git = {
   		enable = true;
   		settings = {

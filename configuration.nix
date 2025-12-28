@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, home-manager, ... }:
+{ config, pkgs, inputs, home-manager, ... }:
 
 {
   imports =
@@ -130,7 +130,8 @@
   	    MOZ_ENABLE_WAYLAND = "1";
         GTK_USE_PORTAL = "1";
   	    # GTK_THEME = "Adwaita:dark";
-        TERM = "xterm-256color"; 
+        TERM = "xterm-256color";
+        DEFAULT_BROWSER = "${inputs.zen-browser.packages.${pkgs.system}.default}/bin/zen"; 
   	};
   };
 
@@ -148,6 +149,12 @@
           "org.freedesktop.impl.portal.FileChooser" = [ "gnome" ];
         };
       };
+  };
+
+  xdg.mime.defaultApplications = {
+      "text/html" = "zen.desktop";
+      "x-scheme-handler/http" = "zen.desktop";
+      "x-scheme-handler/https" = "zen.desktop";
   };
 
 #   xdg.terminal-exec = {
