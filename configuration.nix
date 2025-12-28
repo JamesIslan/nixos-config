@@ -204,6 +204,57 @@
   networking.firewall.trustedInterfaces = [ "tailscale0" ];
   networking.firewall.allowedTCPPorts = [ 22000 ]; # For Syncthing
   networking.firewall.allowedUDPPorts = [ 22000 21027 ]; # For Syncthing
+
+  networking.networkmanager.ensureProfiles = {
+    environmentFiles = [ "/etc/nixos/secrets.env" ];
+    profiles = {
+      "JCDA" = {
+        connection = {
+          id = "JCDA";
+          type = "wifi";
+          autoconnect = true;
+        };
+        wifi = {
+          ssid = "JCDA";
+          mode = "infrastructure";
+        };
+        wifi-security = {
+          key-mgmt = "wpa-psk";
+          psk = "$JCDA_PASS";
+        };
+      };
+    "JVL" = {
+              connection = {
+                id = "JVL";
+                type = "wifi";
+                autoconnect = true;
+              };
+              wifi = {
+                ssid = "JVL";
+                mode = "infrastructure";
+              };
+              wifi-security = {
+                key-mgmt = "wpa-psk";
+                psk = "$JVL_PASS";
+              };
+            };  
+    "MPCA" = {
+            connection = {
+              id = "MPCA";
+              type = "wifi";
+              autoconnect = false;
+            };
+            wifi = {
+              ssid = "MPCA";
+              mode = "infrastructure";
+            };
+            wifi-security = {
+              key-mgmt = "wpa-psk";
+              psk = "$MPCA_PASS";
+            };
+          };
+      };
+  };
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Some programs need SUID wrappers, can be configured further or are
