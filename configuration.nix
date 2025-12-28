@@ -128,9 +128,26 @@
   	    WLR_NO_HARDWARE_CURSORS = "1";
   	    NIXOS_OZONE_WL = "1";
   	    MOZ_ENABLE_WAYLAND = "1";
+        GTK_USE_PORTAL = "1";
   	    # GTK_THEME = "Adwaita:dark";
         TERM = "xterm-256color"; 
   	};
+  };
+
+  xdg.portal = {
+      enable = true;
+      extraPortals = [ 
+        pkgs.xdg-desktop-portal-gnome 
+        pkgs.xdg-desktop-portal-gtk 
+      ];
+      
+      # Configure the preference for the FileChooser interface
+      config = {
+        common = {
+          default = [ "gnome" "gtk" ];
+          "org.freedesktop.impl.portal.FileChooser" = [ "gnome" ];
+        };
+      };
   };
 
 #   xdg.terminal-exec = {
