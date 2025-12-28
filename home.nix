@@ -108,8 +108,11 @@
   	obs-studio.enable = true;
   	git = {
   		enable = true;
- 		settings.user.name = "Joamerson Islan";
-  	    settings.user.email = "joamersonislan38@gmail.com";
+  		settings = {
+ 			user.name = "Joamerson Islan";
+  	    	user.email = "joamersonislan38@gmail.com";
+		    credential.helper = "store";	
+  		};
   	};
   	zsh = {
   		enable = true;
