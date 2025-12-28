@@ -15,7 +15,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  programs.dconf.enable = true;
+  # programs.dconf.enable = true;
   
   networking = {
 	hostName = "nixos";
@@ -94,11 +94,11 @@
     firefox.enable = true;
     virt-manager.enable = true;
     zsh.enable = true;
-    hyprland = {
-        enable = false;
-        withUWSM = true;
-        xwayland.enable = true;
-    };
+    # hyprland = {
+    #     enable = false;
+    #     withUWSM = true;
+    #     xwayland.enable = true;
+    # };
   };
   
   # Allow unfree packages
@@ -128,25 +128,25 @@
   	    WLR_NO_HARDWARE_CURSORS = "1";
   	    NIXOS_OZONE_WL = "1";
   	    MOZ_ENABLE_WAYLAND = "1";
-  	    GTK_THEME = "Adwaita:dark"; 
+  	    # GTK_THEME = "Adwaita:dark"; 
   	};
   };
 
-  xdg.terminal-exec = {
-      enable = true;
-      settings = {
-          default = [ "ghostty.desktop" ];
-      };
-  };
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-    	pkgs.xdg-desktop-portal-gnome
-    	pkgs.xdg-desktop-portal-gtk
-   	];
-    config.common.default = "gnome";
-  };
+#   xdg.terminal-exec = {
+#       enable = true;
+#       settings = {
+#           default = [ "ghostty.desktop" ];
+#       };
+#   };
+# 
+#   xdg.portal = {
+#     enable = true;
+#     extraPortals = [
+#     	pkgs.xdg-desktop-portal-gnome
+#     	pkgs.xdg-desktop-portal-gtk
+#    	];
+#     config.common.default = "gnome";
+#   };
 
   services.dbus.enable = true;
   services.dbus.packages = [ pkgs.gcr ];

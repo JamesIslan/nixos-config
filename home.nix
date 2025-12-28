@@ -141,95 +141,95 @@
   	};
   };
 
-  wayland.windowManager.hyprland = {
-      enable = true;
-      settings = {
-        # Configuração de Monitores (Auto)
-        monitor = [ ",preferred,auto,1" ];
-        exec-once = [
-        	"chromium"
-        	"ghostty"
-        	"vicinae server"
-        	"ashell"
-        ];
-
-        animations = {
-        	enabled = true;
-        	bezier = [
-        		"minhaCurva, 0.05, 0.9, 0.1, 1.05"
-        	];
-        	animation = [
-   	           "windowsIn, 1, 3, minhaCurva, popin 80%"
-   	           "windowsOut, 1, 3, minhaCurva, popin 80%"
-   	           "workspaces, 1, 3, default"
-        	];
-        };
-
-        input = {
-        	kb_layout = "br";
-        	touchpad = {
-        		natural_scroll = true;
-        	};
-        };
-  
-        # Atalhos de teclado
-        "$mainMod" = "SUPER";
-        bind = [
-          "ALT, Q, killactive,"
-          "$mainMod, M, exit,"
-          "$mainMod SHIFT, F, fullscreen, 1"
-          "$mainMod CTRL, F, fullscreen"
-          "$mainMod, left, movefocus, l"
-          "$mainMod, right, movefocus, r"
-          "$mainMod, up, movefocus, u"
-          "$mainMod, down, movefocus, d"
-          # "$mainMod, V, togglefloating,"
-          # Application shortcuts
-          "$mainMod, T, exec, ghostty"
-          "$mainMod, E, exec, nautilus"
-          "$mainMod, D, exec, vicinae toggle"
-          "$mainMod, V, exec, vicinae vicinae://extensions/vicinae/clipboard/history"
-          "$mainMod SHIFT, S, exec, hyprshot --mode region"
-        ];
-        bindm = [
-          "$mainMod, mouse:272, movewindow"
-          "$mainMod, mouse:273, resizewindow"
-        ];
-        binde = [
-          "$mainMod SHIFT, left, resizeactive, -50 0"
-          "$mainMod SHIFT, right, resizeactive, 50 0"
-          "$mainMod SHIFT, up, resizeactive, 0 -50"
-          "$mainMod SHIFT, down, resizeactive, 0 50"
-        ];
-  
-        decoration = {
-          rounding = 10;
-          # blur = {
-          # 	enable = true;
-          # 	size = 3;
-          # 	passes = 1;
-          # 	new_optimizations = true;
-          # };
-        };
-
-		misc = {
-			force_default_wallpaper = 0;
-			disable_hyprland_logo = true;
-		};
-
-		# monitor = [
-		#     "eDP-1, 1920x1080@60, 0x0, 1"
-		# ];
-
-		workspace = [
-	       "1, monitor:eDP-1"
-	       "2, monitor:eDP-1"
-	       "3, monitor:eDP-1"
-	       "4, monitor:eDP-1"
-	   ];
-        
-      };
-  };
+#   wayland.windowManager.hyprland = {
+#       enable = true;
+#       settings = {
+#         # Configuração de Monitores (Auto)
+#         monitor = [ ",preferred,auto,1" ];
+#         exec-once = [
+#         	"chromium"
+#         	"ghostty"
+#         	"vicinae server"
+#         	"ashell"
+#         ];
+# 
+#         animations = {
+#         	enabled = true;
+#         	bezier = [
+#         		"minhaCurva, 0.05, 0.9, 0.1, 1.05"
+#         	];
+#         	animation = [
+#    	           "windowsIn, 1, 3, minhaCurva, popin 80%"
+#    	           "windowsOut, 1, 3, minhaCurva, popin 80%"
+#    	           "workspaces, 1, 3, default"
+#         	];
+#         };
+# 
+#         input = {
+#         	kb_layout = "br";
+#         	touchpad = {
+#         		natural_scroll = true;
+#         	};
+#         };
+#   
+#         # Atalhos de teclado
+#         "$mainMod" = "SUPER";
+#         bind = [
+#           "ALT, Q, killactive,"
+#           "$mainMod, M, exit,"
+#           "$mainMod SHIFT, F, fullscreen, 1"
+#           "$mainMod CTRL, F, fullscreen"
+#           "$mainMod, left, movefocus, l"
+#           "$mainMod, right, movefocus, r"
+#           "$mainMod, up, movefocus, u"
+#           "$mainMod, down, movefocus, d"
+#           # "$mainMod, V, togglefloating,"
+#           # Application shortcuts
+#           "$mainMod, T, exec, ghostty"
+#           "$mainMod, E, exec, nautilus"
+#           "$mainMod, D, exec, vicinae toggle"
+#           "$mainMod, V, exec, vicinae vicinae://extensions/vicinae/clipboard/history"
+#           "$mainMod SHIFT, S, exec, hyprshot --mode region"
+#         ];
+#         bindm = [
+#           "$mainMod, mouse:272, movewindow"
+#           "$mainMod, mouse:273, resizewindow"
+#         ];
+#         binde = [
+#           "$mainMod SHIFT, left, resizeactive, -50 0"
+#           "$mainMod SHIFT, right, resizeactive, 50 0"
+#           "$mainMod SHIFT, up, resizeactive, 0 -50"
+#           "$mainMod SHIFT, down, resizeactive, 0 50"
+#         ];
+#   
+#         decoration = {
+#           rounding = 10;
+#           # blur = {
+#           # 	enable = true;
+#           # 	size = 3;
+#           # 	passes = 1;
+#           # 	new_optimizations = true;
+#           # };
+#         };
+# 
+# 		misc = {
+# 			force_default_wallpaper = 0;
+# 			disable_hyprland_logo = true;
+# 		};
+# 
+# 		# monitor = [
+# 		#     "eDP-1, 1920x1080@60, 0x0, 1"
+# 		# ];
+# 
+# 		workspace = [
+# 	       "1, monitor:eDP-1"
+# 	       "2, monitor:eDP-1"
+# 	       "3, monitor:eDP-1"
+# 	       "4, monitor:eDP-1"
+# 	   ];
+#         
+#       };
+#   };
   
   xdg.configFile."ghostty/config".text = ''
     font-family = "CartographCF Nerd Font"
