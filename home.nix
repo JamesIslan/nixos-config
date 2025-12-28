@@ -43,7 +43,7 @@
   	gparted
   	# nufraw
   	nufraw-thumbnailer
-  	ghostty
+  	# ghostty
   	# git
   	nodejs_24
   	pinta
@@ -114,6 +114,17 @@
 		    credential.helper = "store";	
   		};
   	};
+    ghostty = {
+      enable = true;
+      settings = {
+        "keybind" = "ctrl+backspace=text:\\x17";
+        "font-family" = "CartographCF Nerd Font";
+        "font-size" = 14;
+        "theme" = "Dark Modern";
+        "window-padding-x" = 10;
+        "window-padding-y" = 10;
+      };
+    };
   	zsh = {
   		enable = true;
   		# enableCompletion = true;
@@ -133,6 +144,7 @@
   	    #package = pkgs.vscode.fhsWithPackages (ps: with ps; [ pico-sdk picotool libusb1 ]);
         package = pkgs.vscode;
   	};
+  	
 
   	micro = {
   	    enable = true;
@@ -140,6 +152,15 @@
 		    "cursor" = "underline";
 		    "blinkingcursor" = false;
 		    "colorscheme" = "monokai";
+		    "autoindent" = false;
+            "tabstospaces" = true;
+            "tabsize" = 2;
+            "rmtrailingws" = true;
+            
+			keybindings = {
+			  "F4" = "setall autoindent off; setall tabstospaces on";
+			  "F5" = "setall autoindent on";
+			};
   	  };
   	};
   };
@@ -233,19 +254,6 @@
 #         
 #       };
 #   };
-  
-  xdg.configFile."ghostty/config".text = ''
-    font-family = "CartographCF Nerd Font"
-    font-size = 16
-
-    # theme = "FrontEndDelight"
-    # theme = "Ayu"
-    # theme = "Chalk"
-    theme = "Dark Modern"
-    # theme = "Elementary"
-    window-padding-x = 10
-    window-padding-y = 10
-  '';
 
   home.stateVersion = "25.05";
 }
