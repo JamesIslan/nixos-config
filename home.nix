@@ -183,6 +183,15 @@
         package = pkgs.gnome-themes-extra;
       };
   };
+  
+  xdg.userDirs = {
+      enable = true;
+      createDirectories = true;
+      documents = "$HOME/Documents";
+      download = "$HOME/Downloads";
+      videos = "$HOME/Videos";
+      pictures = "$HOME/Pictures";
+  };
 #   wayland.windowManager.hyprland = {
 #       enable = true;
 #       settings = {
