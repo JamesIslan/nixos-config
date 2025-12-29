@@ -176,6 +176,10 @@
         color-scheme = "prefer-dark";
       };
 
+      "org/gnome/desktop/wm/preferences" = {
+          button-layout = ":minimize,maximize,close";
+      };
+
       "org/gnome/settings-daemon/plugins/media-keys" = {
           custom-keybindings = [
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
