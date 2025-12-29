@@ -228,7 +228,7 @@
   networking.firewall.allowPing = true;
   networking.firewall.trustedInterfaces = [ "tailscale0" ];
   networking.firewall.allowedTCPPorts = [ 22000 ]; # For Syncthing
-  networking.firewall.allowedUDPPorts = [ 22000 21027 ]; # For Syncthing
+  networking.firewall.allowedUDPPorts = [ 22000 21027 41641 ]; # For Syncthing and Tailscale
 
   networking.networkmanager.ensureProfiles = {
     environmentFiles = [ "/etc/nixos/secrets.env" ];
