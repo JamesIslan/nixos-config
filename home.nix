@@ -39,7 +39,9 @@
   	spotify
   	xournalpp
   	digikam
-    gnomeExtensions.focus-changer
+    gnomeExtensions.pop-shell
+    pop-launcher
+    # gnomeExtensions.focus-changer
   	# bottles
   	qbittorrent
   	shotwell
@@ -176,16 +178,30 @@
       "org/gnome/shell" = {
           disable-user-extensions = false;
           enabled-extensions = [
-            "focus-changer@heartmire"
+              "pop-shell@system76.com"
+            # "focus-changer@heartmire"
           ];
       };
+     
+      "org/gnome/shell/extensions/pop-shell" = {
+          tile-by-default = true;
+          show-title = false; # Hide title bars for cleaner look
+          gap-inner = 2;
+          gap-outer = 2;
+          active-hint = false;
+          # hint-color-rgba = "rgb(113, 198, 241)"; # Cyan color
+          tile-move-left = ["<Super><Control>Left"];
+          tile-move-right = ["<Super><Control>Right"];
+          tile-move-up = ["<Super><Control>Up"];
+          tile-move-down = ["<Super><Control>Down"];
+      };
 
-	  "org/gnome/shell/extensions/focus-changer" = {
-	        focus-left = ["<Super>Left"];
-	        focus-right = ["<Super>Right"];
-	        focus-up = ["<Super>Up"];
-	        focus-down = ["<Super>Down"];
-	   };
+	  # "org/gnome/shell/extensions/focus-changer" = {
+	  #       focus-left = ["<Super>Left"];
+	  #       focus-right = ["<Super>Right"];
+	  #       focus-up = ["<Super>Up"];
+	  #       focus-down = ["<Super>Down"];
+	  #  };
 
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
@@ -201,10 +217,10 @@
             unmaximize = [];
             begin-move = [];
             begin-resize = [];
-            move-to-monitor-left = ["<Super><Control>Left"];
-            move-to-monitor-right = ["<Super><Control>Right"];
-            move-to-monitor-up = ["<Super><Control>Up"];
-            move-to-monitor-down = ["<Super><Control>Down"];
+            move-to-monitor-left = [];
+            move-to-monitor-right = [];
+            move-to-monitor-up = [];
+            move-to-monitor-down = [];
       };
       
       "org/gnome/mutter/keybindings" = {
