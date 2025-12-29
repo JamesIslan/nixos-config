@@ -39,6 +39,7 @@
   	spotify
   	xournalpp
   	digikam
+    gnomeExtensions.focus-changer
   	# bottles
   	qbittorrent
   	shotwell
@@ -172,12 +173,39 @@
   };
   
   dconf.settings = {
+      "org/gnome/shell" = {
+          disable-user-extensions = false;
+          enabled-extensions = [
+            "focus-changer@heartmire"
+          ];
+      };
+
+	  "org/gnome/shell/extensions/focus-changer" = {
+	        focus-left = ["<Super>Left"];
+	        focus-right = ["<Super>Right"];
+	        focus-up = ["<Super>Up"];
+	        focus-down = ["<Super>Down"];
+	   };
+
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
       };
 
       "org/gnome/desktop/wm/preferences" = {
           button-layout = ":minimize,maximize,close";
+      };
+
+      "org/gnome/desktop/wm/keybindings" = {
+            minimize = [];
+            maximize = [];
+            unmaximize = [];
+            begin-move = [];
+            begin-resize = [];
+      };
+      
+      "org/gnome/mutter/keybindings" = {
+            toggle-tiled-left = [];
+            toggle-tiled-right = [];
       };
 
       "org/gnome/settings-daemon/plugins/media-keys" = {
