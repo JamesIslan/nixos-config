@@ -176,6 +176,18 @@
 #    	];
 #     config.common.default = "gnome";
 #   };
+  
+  fonts.packages = with pkgs; [
+     (runCommand "my-fonts" {
+       src = ./src/fonts;
+     } ''
+       mkdir -p $out/share/fonts/opentype
+       mkdir -p $out/share/fonts/truetype
+
+       find $src -iname "*.otf" -exec cp {} $out/share/fonts/opentype/ \;
+       find $src -iname "*.ttf" -exec cp {} $out/share/fonts/truetype/ \;
+     '')
+  ];
 
   services.dbus.enable = true;
   services.dbus.packages = [ pkgs.gcr ];
