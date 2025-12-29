@@ -201,6 +201,10 @@
             unmaximize = [];
             begin-move = [];
             begin-resize = [];
+            move-to-monitor-left = ["<Super><Control>Left"];
+            move-to-monitor-right = ["<Super><Control>Right"];
+            move-to-monitor-up = ["<Super><Control>Up"];
+            move-to-monitor-down = ["<Super><Control>Down"];
       };
       
       "org/gnome/mutter/keybindings" = {
