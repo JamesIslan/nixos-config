@@ -253,7 +253,7 @@
         connection = {
           id = "JCDA";
           type = "wifi";
-          autoconnect = true;
+          autoconnect = false;
         };
         wifi = {
           ssid = "JCDA";
@@ -264,6 +264,21 @@
           psk = "$JCDA_PASS";
         };
       };
+    "JCDA_5G" = {
+            connection = {
+              id = "JCDA_5G";
+              type = "wifi";
+              autoconnect = true;
+            };
+            wifi = {
+              ssid = "JCDA_5G";
+              mode = "infrastructure";
+            };
+            wifi-security = {
+              key-mgmt = "wpa-psk";
+              psk = "$JCDA_PASS";
+            };
+    };
     "JVL" = {
               connection = {
                 id = "JVL";
