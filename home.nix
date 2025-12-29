@@ -1,7 +1,8 @@
 { inputs, config, lib, pkgs, ... }:
 
 {
-  imports = [ 
+  imports = [
+    ./scripts.nix 
     inputs.zen-browser.homeModules.twilight 
   ];
   
@@ -97,20 +98,12 @@
 	adw-gtk3
   	#inputs.ashell.packages.${pkgs.system}.default
   	(python3.withPackages (ps: [
-  	    # Add all your python tools here
   	    ps.pip
   	    ps.pygments
   	    ps.jupyter
   	    ps.notebook
   	    ps.ipykernel
   	]))
-    (writeShellApplication {
-          name = "extract-subs";
-          runtimeInputs = [ python3 mkvtoolnix curl ];
-          text = ''
-            curl -sSL https://gist.githubusercontent.com/JamesIslan/eda7e8143dd4d0231aa2090b4339204e/raw/9cf1ba25d5cbffc957239a12af24bb0034b33864/extract_subs.py | python3 - "$@"
-          '';
-    })
   ];
 
   # services.tailscale.enable = true;  
