@@ -154,6 +154,7 @@
   	micro = {
   	    enable = true;
   	    settings = {
+			"clipboard" = "terminal";
 		    "cursor" = "underline";
 		    "blinkingcursor" = false;
 		    "colorscheme" = "monokai";
