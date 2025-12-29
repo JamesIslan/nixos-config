@@ -94,6 +94,10 @@
     firefox.enable = true;
     virt-manager.enable = true;
     zsh.enable = true;
+    nautilus-open-any-terminal = {
+        enable = true;
+        terminal = "ghostty"; 
+    };
     # hyprland = {
     #     enable = false;
     #     withUWSM = true;
