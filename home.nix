@@ -175,6 +175,19 @@
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
       };
+
+      "org/gnome/settings-daemon/plugins/media-keys" = {
+          custom-keybindings = [
+            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+          ];
+          home = [ "<Super>e" ];
+      };
+      
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+          binding = "<Super>t";
+          command = "ghostty";
+          name = "Open Terminal";
+      };
   };
 
   gtk = {
