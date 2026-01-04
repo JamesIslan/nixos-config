@@ -14,6 +14,8 @@
   	kitty
   	jellyfin-media-player
   	# typora # Removed by now
+    gopeed
+    motrix
   	jdk
   	maven
   	affine
@@ -39,7 +41,8 @@
   	spotify
   	xournalpp
   	digikam
-    gnomeExtensions.pop-shell
+    # gnomeExtensions.pop-shell
+    # gnomeExtensions.tiling-shell
     pop-launcher
     # gnomeExtensions.focus-changer
   	# bottles
@@ -59,6 +62,9 @@
   	pavucontrol
   	# xflux # Deprecated
   	vlc
+    # mpv
+    # mpvScripts.autosubsync-mpv
+    # mpvScripts.modernz
   	syncplay
   	mkvtoolnix
   	kooha
@@ -107,6 +113,12 @@
   	    ps.notebook
   	    ps.ipykernel
   	]))
+    (mpv.override {
+        scripts = [ 
+            mpvScripts.autosubsync-mpv
+            mpvScripts.modernz
+        ];
+    })
   ];
 
   # services.tailscale.enable = true;  
@@ -178,36 +190,31 @@
       "org/gnome/shell" = {
           disable-user-extensions = false;
           enabled-extensions = [
-              "pop-shell@system76.com"
+            # "pop-shell@system76.com"
+            # "tilingshell@ferrarodomenico.com"
             # "focus-changer@heartmire"
           ];
       };
      
-      "org/gnome/shell/extensions/pop-shell" = {
-          tile-by-default = true;
-          show-title = false; # Hide title bars for cleaner look
-          gap-inner = 2;
-          gap-outer = 2;
-          active-hint = false;
-          # hint-color-rgba = "rgb(113, 198, 241)"; # Cyan color
-          tile-move-left = ["<Super><Control>Left"];
-          tile-move-right = ["<Super><Control>Right"];
-          tile-move-up = ["<Super><Control>Up"];
-          tile-move-down = ["<Super><Control>Down"];
-      };
-
-	  # "org/gnome/shell/extensions/focus-changer" = {
-	  #       focus-left = ["<Super>Left"];
-	  #       focus-right = ["<Super>Right"];
-	  #       focus-up = ["<Super>Up"];
-	  #       focus-down = ["<Super>Down"];
-	  #  };
+      # "org/gnome/shell/extensions/pop-shell" = {
+      #     tile-by-default = true;
+      #     show-title = false; # Hide title bars for cleaner look
+      #     gap-inner = 0;
+      #     gap-outer = 0;
+      #     active-hint = false;
+      #     # hint-color-rgba = "rgb(113, 198, 241)"; # Cyan color
+      #     tile-move-left = ["<Super><Control>left"];
+      #     tile-move-right = ["<Super><Control>right"];
+      #     tile-move-up = ["<Super><Control>up"];
+      #     tile-move-down = ["<Super><Control>down"];
+      # };
 
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
       };
 
       "org/gnome/desktop/wm/preferences" = {
+          focus-mode = "sloppy";
           button-layout = ":minimize,maximize,close";
       };
 
@@ -215,12 +222,23 @@
             minimize = [];
             maximize = [];
             unmaximize = [];
+            toggle-maximized = ["<Super><Control>f"];
+            toggle-fullscreen = ["<Super><Shift>f"];
+            close = ["<Alt>q"];
             begin-move = [];
             begin-resize = [];
             move-to-monitor-left = [];
             move-to-monitor-right = [];
             move-to-monitor-up = [];
             move-to-monitor-down = [];
+            switch-to-workspace-left = [];
+            switch-to-workspace-right = [];
+            switch-to-workspace-up = [];
+            switch-to-workspace-down = [];
+            move-to-workspace-left = [];
+            move-to-workspace-right = [];
+            move-to-workspace-up = [];
+            move-to-workspace-down = [];
       };
       
       "org/gnome/mutter/keybindings" = {
@@ -258,6 +276,14 @@
       videos = "$HOME/Videos";
       pictures = "$HOME/Pictures";
   };
+
+  xdg.dataFile."jellyfinmediaplayer/mpv.conf".text = ''
+      # Cache up to 500MB (in Kilobytes)
+      demuxer-max-bytes=500000KiB
+      
+      # Attempt to buffer up to 5 minutes (300 seconds)
+      cache-secs=300
+  '';
 #   wayland.windowManager.hyprland = {
 #       enable = true;
 #       settings = {
