@@ -57,6 +57,7 @@
   	nufraw-thumbnailer
   	# ghostty
   	# git
+    # git-crypt
   	nodejs_24
   	pinta
   	libreoffice-qt6-fresh
