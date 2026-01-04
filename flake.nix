@@ -16,7 +16,6 @@
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
       specialArgs = {
       	inherit inputs;
       	inherit home-manager;
@@ -26,6 +25,7 @@
         ./configuration.nix
         home-manager.nixosModules.home-manager
         {
+          nixpkgs.hostPlatform = "x86_64-linux";
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = { inherit inputs; };
