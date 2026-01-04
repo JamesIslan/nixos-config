@@ -58,6 +58,7 @@
   	# ghostty
   	# git
     # git-crypt
+    gnupg1
   	nodejs_24
   	pinta
   	libreoffice-qt6-fresh
