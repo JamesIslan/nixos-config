@@ -43,6 +43,7 @@
   	digikam
     # gnomeExtensions.pop-shell
     # gnomeExtensions.tiling-shell
+    gnomeExtensions.forge
     pop-launcher
     # gnomeExtensions.focus-changer
   	# bottles
@@ -190,6 +191,7 @@
       "org/gnome/shell" = {
           disable-user-extensions = false;
           enabled-extensions = [
+            "forge@jmmaranan.com"
             # "pop-shell@system76.com"
             # "tilingshell@ferrarodomenico.com"
             # "focus-changer@heartmire"
