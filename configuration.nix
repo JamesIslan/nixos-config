@@ -98,6 +98,10 @@
         enable = true;
         terminal = "ghostty"; 
     };
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true; 
+    };
     # hyprland = {
     #     enable = false;
     #     withUWSM = true;
