@@ -199,6 +199,25 @@
             # "focus-changer@heartmire"
           ];
       };
+      "org/gnome/shell/extensions/forge" = {
+         focus-border-toggle = false;
+      };
+      "org/gnome/shell/extensions/forge/keybindings" = {
+         window-focus-left  = ["<Super>Left"];
+         window-focus-right = ["<Super>Right"];
+         window-focus-up    = ["<Super>Up"];
+         window-focus-down  = ["<Super>Down"];
+         window-resize-left  = ["<Super><Shift>Left"];
+         window-resize-right = ["<Super><Shift>Right"];
+         window-resize-right-increase = ["<Super><Shift>Right"];
+         window-resize-right-decrease = ["<Super><Shift>Left"];
+         window-resize-bottom-increase = ["<Super><Shift>Up"];
+         window-resize-bottom-decrease = ["<Super><Shift>Down"];
+         window-resize-left-increase   = [];
+         window-resize-left-decrease   = [];
+         window-resize-top-increase    = [];
+         window-resize-top-decrease    = [];
+      };
      
       # "org/gnome/shell/extensions/pop-shell" = {
       #     tile-by-default = true;
