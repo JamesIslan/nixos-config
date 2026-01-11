@@ -44,10 +44,15 @@
   services = {
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
+    prowlarr.enable = true;
     printing.enable = true;
   	flatpak.enable = true;
   	pulseaudio.enable = false;
   	tailscale.enable = true;
+  	flaresolverr = {
+  		enable = true;
+  		port = 8191;
+  	};
   	xserver = {
   		enable = true;
   		xkb = {
@@ -247,7 +252,10 @@
   networking.firewall.enable = true;
   networking.firewall.allowPing = true;
   networking.firewall.trustedInterfaces = [ "tailscale0" ];
-  networking.firewall.allowedTCPPorts = [ 22000 ]; # For Syncthing
+  networking.firewall.allowedTCPPorts = [ 22000 9696 8191 ];
+  # 22000 - Syncthing
+  # 9696 - Prowlarr
+  # 8191 - FlareSolverr
   networking.firewall.allowedUDPPorts = [ 22000 21027 41641 ]; # For Syncthing and Tailscale
 
   networking.networkmanager.ensureProfiles = {

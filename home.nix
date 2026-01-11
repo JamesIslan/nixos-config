@@ -22,6 +22,7 @@
   	httpie
   	yt-dlp
   	syncthing
+  	# prowlarr
   	nmap
   	wget
   	ffmpeg-full
@@ -115,13 +116,8 @@
   	    ps.jupyter
   	    ps.notebook
   	    ps.ipykernel
+  	    ps.subliminal
   	]))
-    (mpv.override {
-        scripts = [ 
-            mpvScripts.autosubsync-mpv
-            mpvScripts.modernz
-        ];
-    })
   ];
 
   # services.tailscale.enable = true;  
@@ -129,6 +125,19 @@
   	bash.enable = true;
   	obs-studio.enable = true;
   	zen-browser.enable = true;
+  	mpv = {
+  		enable = true;
+  		scripts = [ 
+            pkgs.mpvScripts.autosub
+            pkgs.mpvScripts.autosubsync-mpv
+            pkgs.mpvScripts.modernz
+        ];
+       config = {
+       	    "script-opts-append" = "autosub-languages=pt-BR,pt";
+       	    sid = "no";
+       	    osd-font-size = 30;
+       };
+  	};
   	git = {
   		enable = true;
   		settings = {
