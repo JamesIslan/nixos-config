@@ -15,10 +15,16 @@
   	jellyfin-media-player
   	# typora # Removed by now
     gopeed
+    transmission_4
+    plex-desktop
     motrix
+    aegisub
+    uv
   	jdk
   	maven
+  	subtitleedit
   	affine
+  	prismlauncher
   	httpie
   	yt-dlp
   	syncthing
@@ -45,6 +51,7 @@
     # gnomeExtensions.pop-shell
     # gnomeExtensions.tiling-shell
     gnomeExtensions.forge
+    gnomeExtensions.vicinae
     pop-launcher
     # gnomeExtensions.focus-changer
   	# bottles
@@ -272,6 +279,10 @@
             move-to-workspace-up = [];
             move-to-workspace-down = [];
       };
+
+      "org/gnome/shell/keybindings" = {
+     	    toggle-message-tray = [];
+      };
       
       "org/gnome/mutter/keybindings" = {
             toggle-tiled-left = [];
@@ -281,6 +292,8 @@
       "org/gnome/settings-daemon/plugins/media-keys" = {
           custom-keybindings = [
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+			"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
           ];
           home = [ "<Super>e" ];
       };
@@ -289,6 +302,18 @@
           binding = "<Super>t";
           command = "ghostty";
           name = "Open Terminal";
+      };
+      
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+          binding = "<Super>d";
+          command = "vicinae toggle";
+          name = "Vicinae";
+      };
+
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+         binding = "<Super>v";
+         command = "vicinae vicinae://extensions/vicinae/clipboard/history";
+         name = "Vicinae Clipboard";
       };
   };
 

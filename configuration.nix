@@ -144,9 +144,25 @@
         GTK_USE_PORTAL = "1";
   	    # GTK_THEME = "Adwaita:dark";
         TERM = "xterm-256color";
+        UV_PYTHON_DOWNLOADS = "never";
         DEFAULT_BROWSER = "${inputs.zen-browser.packages.${pkgs.system}.default}/bin/zen"; 
   	};
   };
+
+  programs.nix-ld.enable = true;
+  
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc
+    zlib
+    fuse3
+    icu
+    nss
+    openssl
+    curl
+    expat
+    libuuid
+    libxml2
+  ];
 
   xdg.portal = {
       enable = true;
